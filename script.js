@@ -185,7 +185,7 @@ function reset() {
     accuracyValue.innerText = '100.0%';
     pCompleteValue.innerText = '0%';
     accuracy.innerText = '100 %';
-    //speed.innerText = '0 wpm';
+    // speed.innerText = '0 wpm';
     correctLetters.innerText = 200;
     inCorrectLetters.innerText = 0;
     fixedLetters.innerText = 0;
