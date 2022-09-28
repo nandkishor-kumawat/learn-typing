@@ -39,38 +39,34 @@
 
 #blockDivContainer {
     width: 720px;
-    text-align: center;
     margin: 2px auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 2px 15px;
     background-color: #fff;
-    height: 200px;
+    /* height: 200px; */
     border: 4px solid #ff8505;
     overflow: hidden;
 }
 
 div.blockLines {
-    text-align: left;
     background-color: #fff;
     font-family: TexGyreCursor-Bold, Courier, monospace;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 30px;
     line-height: 35px;
     font-variant-ligatures: none;
 }
 
 span {
     word-break: break-all;
+    white-space: break-spaces;
 }
 
-span.space {
+/* span.space {
     display: inline-block;
     width: 17px;
-    height: 29px;
-    margin-bottom: -8px;
-}
+    height: 33.5px;
+    margin-bottom: -9px;
+} */
 
 span.active {
     color: #fff;
@@ -152,6 +148,7 @@ div.custom p {
 div.sidebar {
     width: 400px;
     padding: 10px;
+    display: none;
     user-select: none;
 }
 
