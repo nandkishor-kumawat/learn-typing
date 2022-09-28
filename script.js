@@ -17,7 +17,7 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     fixedLetters = document.querySelector('#fixedLetters'),
     totalLetters = document.querySelector('#totalLetters'),
     flag = mistake = charIndex = typedLetters = 0,
-    time = 60,
+    time = 120,
     timeLimit = time,
     timer, wpm, completedLetters, inCorrectLetterN  = 0;
 
