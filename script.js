@@ -189,7 +189,7 @@ function reset() {
     correctLetters.innerText = 200;
     inCorrectLetters.innerText = 0;
     fixedLetters.innerText = 0;
-    flag = mistake = completedLetters = charIndex =typedLetters= 0;
+    flag = inCorrectLetterN = mistake = completedLetters = charIndex =typedLetters= 0;
     resultContainer.style.height = 0;
     resultContainer.style.display = "none";
 }
