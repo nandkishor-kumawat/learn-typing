@@ -56,10 +56,13 @@ div.blockLines {
     user-select: none;
 }
 
-span {
+.blockLines span {
     word-break: break-all;
     white-space: break-spaces;
 }
+/* .blockLines span:first-child{
+    margin-left: calc(50% - 4px);
+} */
 
 /* span.space {
     display: inline-block;
@@ -68,20 +71,20 @@ span {
     margin-bottom: -9px;
 } */
 
-span.active {
+.blockLines span.active {
     color: #fff;
     background-color: #000;
 }
 
-span.incorrect {
+.blockLines span.incorrect {
     color: red;
 }
 
-span.incorrect.space {
+.blockLines span.incorrect.space {
     background-color: red;
 }
 
-span.correct {
+.blockLines span.correct {
     color: #090;
 }
 

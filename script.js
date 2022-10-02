@@ -17,9 +17,9 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     fixedLetters = document.querySelector('#fixedLetters'),
     totalLetters = document.querySelector('#totalLetters'),
     flag = mistake = charIndex = typedLetters = 0,
-    time = 120,
+    time = 0,
     timeLimit = time,
-    timer, wpm, completedLetters, inCorrectLetterN  = 0;
+    timer, wpm, completedLetters, inCorrectLetterN = 0;
 
 
 
@@ -62,7 +62,7 @@ function randomPara(letters) {
 
     let i = 1;
     while (i < 200) {
-        let d = randomValueFromArray(["1", "2", "3", "4", "5", "0", "6"]);
+        let d = randomValueFromArray(["1", "2", "3", "4", "5", "0",]);
         if (d == 0) {
             para += ' ';
         } else {
@@ -101,7 +101,15 @@ function checkValue(e) {
     let inputCharacter = inputField.value.split('')[charIndex];
     let character = blockLine.querySelectorAll('span');
     //backspace
-
+    if (flag == 0) {
+        timeLimit = time;
+        // timer = setInterval(timerUpdate, 1000);
+        timer = setInterval(() => {
+            timeLimit++;
+            timevalue.innerText = timeLimit;
+        }, 1000);
+        flag = 1;
+    }
     if (inputCharacter == null) {
         charIndex--;
 
@@ -112,12 +120,6 @@ function checkValue(e) {
 
     }
     else {
-        if (flag == 0) {
-            timeLimit = time;
-            timer = setInterval(timerUpdate, 1000);
-            flag = 1;
-        }
-
         if (character[charIndex].innerText == inputCharacter || (character[charIndex].innerHTML == ' ' && inputCharacter == ' '))
             character[charIndex].classList.add('correct');
 
@@ -127,13 +129,17 @@ function checkValue(e) {
             inCorrectLetterN++;
         }
 
-    typedLetters++;
-    completedLetters++;
+        typedLetters++;
+        completedLetters++;
         charIndex++;
     }
     character.forEach(element => { element.classList.remove('active') });
+
+    // character[charIndex+39].scrollIntoView({behavior: "smooth",block: "center"});;
+
     if (character[charIndex]) {
         character[charIndex].classList.add('active');
+        // document.querySelector('.active').scrollIntoView({behavior: "smooth",block: "center"});
     } else {
         // inputField.disabled = true;
         clearInterval(timer);
@@ -143,14 +149,15 @@ function checkValue(e) {
     }
     let totalLetter = character.length;
     let accuracyc = (((totalLetter - mistake) / totalLetter) * 100).toFixed(1);
-    wpm = ((typedLetters/5 - mistake) / (time - timeLimit)*60);
+    // wpm = Math.round(((completedLetters - mistake) / 5) / (time - timeLimit) * 60);
+    wpm = Math.round(((completedLetters - mistake) / 5) / (timeLimit) * 60);
     wpm = (wpn = 0 || wpm === Infinity || !wpm) ? 0 : wpm;
     pComplete = (completedLetters / totalLetter * 100).toFixed(1);
     pCompleteValue.innerText = pComplete + '%';
     accuracyValue.innerText = accuracyc + '%';
 
     accuracy.innerText = accuracyc + '%';
-    // speed.innerText = wpm + ' wpm';
+    speed.innerText = wpm + ' wpm';
     correctLetters.innerText = totalLetter - mistake;
     inCorrectLetters.innerText = inCorrectLetterN;
     fixedLetters.innerText = inCorrectLetterN - mistake;
@@ -185,11 +192,11 @@ function reset() {
     accuracyValue.innerText = '100.0%';
     pCompleteValue.innerText = '0%';
     accuracy.innerText = '100 %';
-    // speed.innerText = '0 wpm';
+    speed.innerText = '0 wpm';
     correctLetters.innerText = 200;
     inCorrectLetters.innerText = 0;
     fixedLetters.innerText = 0;
-    flag = inCorrectLetterN = mistake = completedLetters = charIndex =typedLetters= 0;
+    flag = inCorrectLetterN = mistake = completedLetters = charIndex = typedLetters = 0;
     resultContainer.style.height = 0;
     resultContainer.style.display = "none";
 }
