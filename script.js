@@ -23,8 +23,6 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     timer, wpm, completedLetters, inCorrectLetterN =  0,
     character;
 
-
-
 //adding function to print lessons
 lessons.forEach(element => {
     element.onclick = () => printkeys(element.textContent);
@@ -89,7 +87,6 @@ function printkeys(keybtns) {
     character.forEach(element => {
         if (element.innerText == ' ') element.classList.add('space');
     });
-    // inputField.setAttribute("maxlength",char.length);
     correctLetters.innerText = character.length;
     totalLetters.innerText = character.length;
 
@@ -140,12 +137,11 @@ function checkValue(e) {
         completedLetters++;
         charIndex++;
     }
-    character.forEach(element => { element.classList.remove('active') });
+    character.forEach(element => {element.classList.remove('active') });
 
     if (character[charIndex]) {
         character[charIndex].classList.add('active');
     } else {
-        // inputField.disabled = true;
         clearInterval(timer);
         inputField.removeEventListener('input', checkValue);
         resultContainer.style.height = 'auto';
