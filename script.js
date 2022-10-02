@@ -1,12 +1,13 @@
 let blockDivContainer = document.querySelector('#blockDivContainer'),
     inpbtns = document.getElementById('btns'),
-    character = document.querySelectorAll('#blockLine span'),
+    blockLine = document.querySelector('#blockLine'),
     goBtn = document.querySelector('#go'),
     lessons = document.querySelectorAll('.lessons'),
     timevalue = document.querySelector('.time'),
     accuracyValue = document.querySelector('.acc'),
     pCompleteValue = document.querySelector('.pCompleteValue'),
     resetBtn = document.querySelector('#resetBtn'),
+    swtichBtn = document.querySelector('#swtichBtn'),
     inputField = document.querySelector('#inputField'),
     resultContainer = document.querySelector('#resultContainer'),
 
@@ -19,7 +20,8 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     flag = mistake = charIndex = typedLetters = 0,
     time = 0,
     timeLimit = time,
-    timer, wpm, completedLetters, inCorrectLetterN = 0;
+    timer, wpm, completedLetters, inCorrectLetterN =  0,
+    character;
 
 
 
@@ -77,20 +79,20 @@ function randomPara(letters) {
 function printkeys(keybtns) {
     resetBtn.setAttribute('onclick', `printkeys("${keybtns}")`);
     reset();
-
-
     let paragraph = randomPara(keybtns);
     paragraph.split("  ").join("").split("").forEach(element => {
         blockLine.innerHTML += `<span>${element}</span>`;
     });
-    let char = blockLine.querySelectorAll('span');
-    char[0].classList.add('active');
-    char.forEach(element => {
+    character = blockLine.querySelectorAll('span');
+    character[0].classList.add('active');
+     character[0].scrollIntoView();
+    character.forEach(element => {
         if (element.innerText == ' ') element.classList.add('space');
     });
     // inputField.setAttribute("maxlength",char.length);
-    correctLetters.innerText = char.length;
-    totalLetters.innerText = char.length;
+    correctLetters.innerText = character.length;
+    totalLetters.innerText = character.length;
+
 }
 
 printkeys('fj');
@@ -99,7 +101,7 @@ printkeys('fj');
 function checkValue(e) {
     e.preventDefault();
     let inputCharacter = inputField.value.split('')[charIndex];
-    let character = blockLine.querySelectorAll('span');
+    character = blockLine.querySelectorAll('span');
     //backspace
     if (flag == 0) {
         timeLimit = time;
@@ -117,6 +119,8 @@ function checkValue(e) {
             mistake--;
         character[charIndex].classList.remove('incorrect', 'correct');
         completedLetters--;
+        if(character[charIndex-14])
+        character[charIndex-14].scrollIntoView();
 
     }
     else {
@@ -129,17 +133,17 @@ function checkValue(e) {
             inCorrectLetterN++;
         }
 
+        if (character[charIndex + 17])
+            character[charIndex + 17].scrollIntoView();
+
         typedLetters++;
         completedLetters++;
         charIndex++;
     }
     character.forEach(element => { element.classList.remove('active') });
 
-    // character[charIndex+39].scrollIntoView({behavior: "smooth",block: "center"});;
-
     if (character[charIndex]) {
         character[charIndex].classList.add('active');
-        // document.querySelector('.active').scrollIntoView({behavior: "smooth",block: "center"});
     } else {
         // inputField.disabled = true;
         clearInterval(timer);
@@ -147,6 +151,7 @@ function checkValue(e) {
         resultContainer.style.height = 'auto';
         resultContainer.style.display = 'block';
     }
+
     let totalLetter = character.length;
     let accuracyc = (((totalLetter - mistake) / totalLetter) * 100).toFixed(1);
     // wpm = Math.round(((completedLetters - mistake) / 5) / (time - timeLimit) * 60);
@@ -199,7 +204,13 @@ function reset() {
     flag = inCorrectLetterN = mistake = completedLetters = charIndex = typedLetters = 0;
     resultContainer.style.height = 0;
     resultContainer.style.display = "none";
+    inputField.focus()
 }
 
+swtichBtn.onclick = () =>{
+    blockLine.classList.toggle('switch');
+    inputField.focus()
+    character[charIndex + 17].scrollIntoView();
+}
 blockDivContainer.addEventListener("click", () => inputField.focus());
 
