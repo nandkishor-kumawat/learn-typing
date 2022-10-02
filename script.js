@@ -119,8 +119,8 @@ function checkValue(e) {
             mistake--;
         character[charIndex].classList.remove('incorrect', 'correct');
         completedLetters--;
-        if(character[charIndex-14])
-        character[charIndex-14].scrollIntoView();
+        if(character[charIndex-17])
+        character[charIndex-17].scrollIntoView();
 
     }
     else {
