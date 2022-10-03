@@ -3,9 +3,11 @@
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     background-color: #3d3d3d;
 }
+
 #header {
     height: 50px;
     background-color: #00659a;
@@ -23,7 +25,7 @@ body{
 .logoDiv {
     flex: 1;
     font-size: 26px;
-    
+
 }
 
 .menuBar {
@@ -33,9 +35,15 @@ body{
 
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #logo {
     font-size: 50px;
-    text-align: center;
+    width: fit-content;
     margin: 1em;
     color: #00ffec;
     text-shadow: 0 0 5px #00ffec, 0 0 25px #00ffec, 0 0 50px #00ffec, 0 0 200px #00ffec;
@@ -59,9 +67,11 @@ body{
     user-select: none;
     white-space: break-spaces;
 }
-#blockLine.switch{
+
+#blockLine.switch {
     white-space: nowrap;
 }
+
 #blockLine span {
     word-break: break-all;
     /* white-space: nowrap; */
@@ -150,16 +160,18 @@ div#sidebar {
     user-select: none;
     border: 1px solid silver;
     border-radius: 10px;
-    position:absolute;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background: #ffffff;
     z-index: 9;
 }
-#sidebar.open{
+
+#sidebar.open {
     display: block;
 }
+
 #lessons {
     height: 50vh;
     overflow-y: scroll;
