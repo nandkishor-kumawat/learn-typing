@@ -15,11 +15,10 @@
 
 <body>
     <header>
-        <div id="logo" >Learn Typing</div>
+        <div id="logo">Learn Typing</div>
     </header>
-    <div class="main">
 
-        <!-- <header id="header">
+    <!-- <header id="header">
         <div class="topBar">
             <div class="logoDiv">Learn Typing</div>
             <div class="menuBar">
@@ -29,97 +28,98 @@
         </div>
        </header> -->
 
-        <div class="sidebar">
-            <div class="custom">
-                <p>custom lesson</p>
-                <div class="values">
-                    <input type="text" id="btns" value="fj">
-                    <button id="go">go</button>
-                </div>
-            </div>
-
-            <div id="lessons">
-                <div class="lesson">
-                    <div class="home">
-                        <div class="lessons l1" onclick="//printkeys('fj')">fj</div>
-                        <div class="lessons l2" onclick="//printkeys('dk')">dk</div>
-                        <div class="lessons r1" onclick="//printkeys('fjdk')">fjdk</div>
-
-                        <div class="lessons l3" onclick="//printkeys('sl')">sl</div>
-                        <div class="lessons l4" onclick="//printkeys('a;')">a;</div>
-                        <div class="lessons r2" onclick="//printkeys('sla;')">sla;</div>
-
-                        <div class="lessons l5" onclick="//printkeys('gh')">gh</div>
-                        <div class="r r3 home_row" onclick="printkeys('asdfghjkl;')">home row</div>
-                    </div>
-
-                    <div class="top">
-                        <div class="lessons l6" onclick="//printkeys('ru')">ru</div>
-                        <div class="lessons l7" onclick="//printkeys('ei')">ei</div>
-                        <div class="lessons r4" onclick="//printkeys('ruei')">ruei</div>
-
-                        <div class="lessons l8" onclick="//printkeys('wo')">wo</div>
-                        <div class="lessons l9" onclick="//printkeys('qp')">qp</div>
-                        <div class="lessons r5" onclick="//printkeys('woqp')">woqp</div>
-
-                        <div class="lessons l10" onclick="//printkeys('ty')">ty</div>
-                        <div class="r r6 top_row" onclick="printkeys('qwertyuiop')">top row</div>
-                    </div>
-
-                    <div class="bottom">
-                        <div class="lessons l11" onclick="//printkeys('vm')">vm</div>
-                        <div class="lessons l12" onclick="//printkeys('c,')">c,</div>
-                        <div class="lessons r7" onclick="//printkeys('vmc,')">vmc,</div>
-
-                        <div class="lessons l13" onclick="//printkeys('x.')">x.</div>
-                        <div class="lessons l14" onclick="//printkeys(`z'`)">z'</div>
-                        <div class="lessons r8" onclick="//printkeys(`x.z'`)">x.z'</div>
-
-                        <div class="lessons l15" onclick="//printkeys('bn')">bn</div>
-                        <div class="r r9 bottom_row" onclick="printkeys(`zxcvbnm,.'`)">bottom row</div>
-                    </div>
-                </div>
+    <div id="sidebar">
+        <div class="custom">
+            <p>custom lesson</p>
+            <div class="values">
+                <input type="text" id="btns" value="fj">
+                <button id="go">go</button>
             </div>
         </div>
 
-        <div class="container">
-            <div id="centerContent">
-                <div class="stats">
-                    <div class="timer">
-                        <span>Timer</span>
-                        <b class="time">120</b>
-                    </div>
-                    <div class="">
-                        <span>Percent complete</span>
-                        <b class="pCompleteValue">00</b>
-                    </div>
-                    <div class="accuracy">
-                        <span>Accuracy</span>
-                        <b class="acc">100</b>
-                    </div>
+        <div id="lessons">
+            <div class="lesson">
+                <div class="home">
+                    <div class="lessons l1" onclick="//printkeys('fj')">fj</div>
+                    <div class="lessons l2" onclick="//printkeys('dk')">dk</div>
+                    <div class="lessons r1" onclick="//printkeys('fjdk')">fjdk</div>
+
+                    <div class="lessons l3" onclick="//printkeys('sl')">sl</div>
+                    <div class="lessons l4" onclick="//printkeys('a;')">a;</div>
+                    <div class="lessons r2" onclick="//printkeys('sla;')">sla;</div>
+
+                    <div class="lessons l5" onclick="//printkeys('gh')">gh</div>
+                    <div class="r r3 home_row" onclick="printkeys('asdfghjkl;')">home row</div>
                 </div>
-                <div id="blockDivContainer" class="mainDivInputs">
-                    <div class="blockLines" id="blockLine"></div>
+
+                <div class="top">
+                    <div class="lessons l6" onclick="//printkeys('ru')">ru</div>
+                    <div class="lessons l7" onclick="//printkeys('ei')">ei</div>
+                    <div class="lessons r4" onclick="//printkeys('ruei')">ruei</div>
+
+                    <div class="lessons l8" onclick="//printkeys('wo')">wo</div>
+                    <div class="lessons l9" onclick="//printkeys('qp')">qp</div>
+                    <div class="lessons r5" onclick="//printkeys('woqp')">woqp</div>
+
+                    <div class="lessons l10" onclick="//printkeys('ty')">ty</div>
+                    <div class="r r6 top_row" onclick="printkeys('qwertyuiop')">top row</div>
                 </div>
-                <div class="buttonWrapper">
-                    <div id="resetWrap"><button id="resetBtn">Reset</button></div>
-                    <div id="switchWrap"><button id="swtichBtn">Switch</button></div>
-                </div>
-                <div id="resultContainer">
-                    <div id="resultdiv">
-                        <div>Result</div>
-                        <div><span>Accuracy: </span><b id="accuracy">100.0%</b></div>
-                        <div><span>Speed: </span><b id="speed">0 wpm</b></div>
-                        <div><span>Correct Letters: </span><b id="correctLetters" style="color: lime;">0</b></div>
-                        <div><span>Incorrect Letters: </span><b id="inCorrectLetters" style="color: red;">0</b>
-                        </div>
-                        <div><span>Fixed Letters: </span><b id="fixedLetters" style="color: yellow;">0</b></div>
-                        <div><span>Total Letters: </span><b id="totalLetters" style="color: cyan;">0</b></div>
-                    </div>
+
+                <div class="bottom">
+                    <div class="lessons l11" onclick="//printkeys('vm')">vm</div>
+                    <div class="lessons l12" onclick="//printkeys('c,')">c,</div>
+                    <div class="lessons r7" onclick="//printkeys('vmc,')">vmc,</div>
+
+                    <div class="lessons l13" onclick="//printkeys('x.')">x.</div>
+                    <div class="lessons l14" onclick="//printkeys(`z'`)">z'</div>
+                    <div class="lessons r8" onclick="//printkeys(`x.z'`)">x.z'</div>
+
+                    <div class="lessons l15" onclick="//printkeys('bn')">bn</div>
+                    <div class="r r9 bottom_row" onclick="printkeys(`zxcvbnm,.'`)">bottom row</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div id="centerContent">
+            <div class="stats">
+                <div class="timer">
+                    <span>Timer</span>
+                    <b class="time">120</b>
+                </div>
+                <div class="">
+                    <span>Percent complete</span>
+                    <b class="pCompleteValue">00</b>
+                </div>
+                <div class="accuracy">
+                    <span>Accuracy</span>
+                    <b class="acc">100</b>
+                </div>
+            </div>
+            <div id="blockDivContainer" class="mainDivInputs">
+                <div class="blockLines" id="blockLine"></div>
+            </div>
+            <div class="buttonWrapper">
+                <div id="resetWrap"><button id="resetBtn">Reset</button></div>
+                <button id="sideBarBtn">LESSONS</button>
+                <div id="switchWrap"><button id="swtichBtn">Switch</button></div>
+            </div>
+            <div id="resultContainer">
+                <div id="resultdiv">
+                    <div>Result</div>
+                    <div><span>Accuracy: </span><b id="accuracy">100.0%</b></div>
+                    <div><span>Speed: </span><b id="speed">0 wpm</b></div>
+                    <div><span>Correct Letters: </span><b id="correctLetters" style="color: lime;">0</b></div>
+                    <div><span>Incorrect Letters: </span><b id="inCorrectLetters" style="color: red;">0</b>
+                    </div>
+                    <div><span>Fixed Letters: </span><b id="fixedLetters" style="color: yellow;">0</b></div>
+                    <div><span>Total Letters: </span><b id="totalLetters" style="color: cyan;">0</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <input type="text" id="inputField" style="opacity: 0" autocomplete="off">
 
 
