@@ -2,14 +2,16 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     inpbtns = document.getElementById('btns'),
     blockLine = document.querySelector('#blockLine'),
     goBtn = document.querySelector('#go'),
+    sidebar = document.querySelector('#sidebar'),
     lessons = document.querySelectorAll('.lessons'),
     timevalue = document.querySelector('.time'),
     accuracyValue = document.querySelector('.acc'),
     pCompleteValue = document.querySelector('.pCompleteValue'),
-    resetBtn = document.querySelector('#resetBtn'),
-    swtichBtn = document.querySelector('#swtichBtn'),
     inputField = document.querySelector('#inputField'),
     resultContainer = document.querySelector('#resultContainer'),
+    resetBtn = document.querySelector('#resetBtn'),
+    swtichBtn = document.querySelector('#swtichBtn'),
+    sideBarBtn = document.querySelector('#sideBarBtn'),
 
     accuracy = document.querySelector('#accuracy'),
     speed = document.querySelector('#speed'),
@@ -20,12 +22,15 @@ let blockDivContainer = document.querySelector('#blockDivContainer'),
     flag = mistake = charIndex = typedLetters = 0,
     time = 0,
     timeLimit = time,
-    timer, wpm, completedLetters, inCorrectLetterN =  0,
+    timer, wpm, completedLetters, inCorrectLetterN = 0,
     character;
 
 //adding function to print lessons
 lessons.forEach(element => {
-    element.onclick = () => printkeys(element.textContent);
+    element.onclick = () => {
+        printkeys(element.textContent);
+        sideBarBtn.click();
+    }
 });
 
 inpbtns.value = 'fj';
@@ -42,6 +47,7 @@ goBtn.addEventListener('click', () => {
         return i == p.indexOf(allItems);
     }).join('');
     printkeys(keybtns);
+    sideBarBtn.click();
 });
 
 function randomPara(letters) {
@@ -83,7 +89,7 @@ function printkeys(keybtns) {
     });
     character = blockLine.querySelectorAll('span');
     character[0].classList.add('active');
-     character[0].scrollIntoView();
+    character[0].scrollIntoView();
     character.forEach(element => {
         if (element.innerText == ' ') element.classList.add('space');
     });
@@ -116,8 +122,8 @@ function checkValue(e) {
             mistake--;
         character[charIndex].classList.remove('incorrect', 'correct');
         completedLetters--;
-        if(character[charIndex-17])
-        character[charIndex-17].scrollIntoView();
+        if (character[charIndex - 20])
+            character[charIndex - 20].scrollIntoView();
 
     }
     else {
@@ -130,14 +136,14 @@ function checkValue(e) {
             inCorrectLetterN++;
         }
 
-        if (character[charIndex + 17])
-            character[charIndex + 17].scrollIntoView();
+        if (character[charIndex + 20])
+            character[charIndex + 20].scrollIntoView();
 
         typedLetters++;
         completedLetters++;
         charIndex++;
     }
-    character.forEach(element => {element.classList.remove('active') });
+    character.forEach(element => { element.classList.remove('active') });
 
     if (character[charIndex]) {
         character[charIndex].classList.add('active');
@@ -203,10 +209,13 @@ function reset() {
     inputField.focus()
 }
 
-swtichBtn.onclick = () =>{
+swtichBtn.onclick = () => {
     blockLine.classList.toggle('switch');
     inputField.focus()
-    character[charIndex + 17].scrollIntoView();
+    character[charIndex + 20].scrollIntoView();
+}
+sideBarBtn.onclick = () => {
+    sidebar.classList.toggle('open');
 }
 blockDivContainer.addEventListener("click", () => inputField.focus());
 
