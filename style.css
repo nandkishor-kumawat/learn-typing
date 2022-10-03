@@ -39,7 +39,7 @@
 #blockDivContainer {
     width: 720px;
     margin: 2px auto;
-    padding: 2px 15px;
+    padding: 4px;
     background-color: #fff;
     border: 4px solid #ff8505;
     overflow: hidden;
@@ -79,7 +79,7 @@
 }
 
 .main {
-    display: flex;
+    /* display: flex; */
     align-items: center;
 }
 
@@ -137,14 +137,23 @@ div.custom p {
     margin: 0;
 }
 
-div.sidebar {
+div#sidebar {
+    display: none;
     width: 360px;
     margin: 10px;
     user-select: none;
     border: 1px solid silver;
     border-radius: 10px;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    z-index: 9;
 }
-
+#sidebar.open{
+    display: block;
+}
 #lessons {
     height: 50vh;
     overflow-y: scroll;
