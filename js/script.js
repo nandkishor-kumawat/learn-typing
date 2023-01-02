@@ -68,7 +68,7 @@ function randomPara(letters) {
 
     let i = 1;
     while (i < 200) {
-        let d = randomValueFromArray(["1", "2", "3", "4", "5", "0",]);
+        let d = randomValueFromArray([1, 2, 3, 4, 5, 0]);
         if (d == 0) {
             para += ' ';
         } else {
@@ -79,6 +79,7 @@ function randomPara(letters) {
     }
     return para;
 }
+
 //funtion for printing letters
 function printkeys(keybtns) {
     resetBtn.setAttribute('onclick', `printkeys("${keybtns}")`);
@@ -95,7 +96,7 @@ function printkeys(keybtns) {
     });
     correctLetters.innerText = character.length;
     totalLetters.innerText = character.length;
-
+    inputField.focus();
 }
 
 printkeys('fj');
@@ -127,7 +128,7 @@ function checkValue(e) {
 
     }
     else {
-        if (character[charIndex].innerText == inputCharacter || (character[charIndex].innerHTML == ' ' && inputCharacter == ' '))
+        if (character[charIndex].innerText == inputCharacter)
             character[charIndex].classList.add('correct');
 
         else {
@@ -143,7 +144,7 @@ function checkValue(e) {
         completedLetters++;
         charIndex++;
     }
-    character.forEach(element => { element.classList.remove('active') });
+    character.forEach(element => element.classList.remove('active'));
 
     if (character[charIndex]) {
         character[charIndex].classList.add('active');
@@ -214,8 +215,11 @@ swtichBtn.onclick = () => {
     inputField.focus()
     character[charIndex + 20].scrollIntoView();
 }
+
 sideBarBtn.onclick = () => {
     sidebar.classList.toggle('open');
 }
+
 blockDivContainer.addEventListener("click", () => inputField.focus());
+// document.body.addEventListener("keydown", () => inputField.focus());
 
